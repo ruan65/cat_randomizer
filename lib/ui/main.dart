@@ -1,6 +1,8 @@
 import 'package:cat_randomizer/network/cat_service.dart';
 import 'package:flutter/material.dart';
 
+import 'cat_detailed_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Cat A List'),
     );
   }
 }
@@ -27,29 +29,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<String> catalinks = [];
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-          ],
-        ),
+//      appBar: AppBar(
+//        title: Text(widget.title),
+//      ),
+      body: ListView.builder(
+        itemCount: catalinks.length,
+        itemBuilder: (BuildContext ctx, int index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CatDetailedScreen(catalinks[index]),
+                ),
+              );
+            },
+            child: Image.network(catalinks[index]),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           List<String> cLinks = await fetchCatListLinks();
           print(cLinks);
 
+          setState(() {
+            catalinks = cLinks;
+          });
         },
         child: Icon(Icons.sync),
       ), // This trailing comma makes auto-formatting nicer for build methods.

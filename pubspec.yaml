@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  photo_view: ^0.4.2
   http:
   flutter:
     sdk: flutter
