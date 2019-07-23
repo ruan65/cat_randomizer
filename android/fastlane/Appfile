@@ -1,0 +1,2 @@
+json_key_file "/Users/arudenko/dev/signing/google_play_service_account_key/api-7551460190997919575-574128-b46087346c81.json"  # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name "org.premiumapp.cat_randomizer"  # e.g. com.krausefx.app

@@ -1,0 +1,11 @@
+app_identifier "org.premiumapp.catRandomizer"      # The bundle identifier of your app
+apple_id "ruan65@gmail.com"      # Your Apple email address
+team_name "Andrey Rudenko"
+team_id "N37H34R96X"
+
+# itc_team_id("")
+
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
